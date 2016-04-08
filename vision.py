@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 
 def vision():
-	orig = cv2.imread('pic5.jpg', cv2.IMREAD_COLOR)
+	orig = cv2.imread('samplepics/pic5.jpg', cv2.IMREAD_COLOR)
 	hsv = cv2.cvtColor(orig, cv2.COLOR_BGR2HSV)
 	
 	
