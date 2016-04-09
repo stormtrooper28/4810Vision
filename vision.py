@@ -46,13 +46,13 @@ def vision():
 		else:
 			max_index = np.argmax(areas)
 
-		cnt = contours[max_index]
-		x, y, w, h = cv2.boundingRect(cnt)
-		cv2.rectangle(orig, (x,y), (x+w, y+h), (0, 0, 0), 2)
-		area = w * h
+			cnt = contours[max_index]
+			x, y, w, h = cv2.boundingRect(cnt)
+			cv2.rectangle(orig, (x,y), (x+w, y+h), (0, 0, 0), 2)
+			area = w * h
 
-		cov_sc = get_score(coverage_area_ratio(cv2.contourArea(contours[max_index]), area), (1/3))
-		asp_sc = get_score(aspect_ratio(w, h), (5/3))
+			cov_sc = get_score(coverage_area_ratio(cv2.contourArea(contours[max_index]), area), (1/3))
+			asp_sc = get_score(aspect_ratio(w, h), (5/3))
 		
 		if determine_target(cov_sc, asp_sc):
 			cv2.imwrite('is_target.png', orig)
