@@ -1,6 +1,6 @@
 #4810Vision - A Python Implementation of OpenCV for Stronghold 2016 Target Detection
 
-**Instructions for Installation**
+**Instructions to run program**
 
 Make sure you have Python 3.4 installed on your system.
 
