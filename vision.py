@@ -31,15 +31,19 @@ def vision():
 	cov_sc = 0
 	asp_sc = 0
 	
+	#numpy arrays to store bgr values to mask
+	lower_red = np.array([50, 0, 225], dtype = np.uint8) 
+	upper_red = np.array([70, 10, 255], dtype = np.uint8)
+	
+	#numpt arrays to store bgr values to detect retroreflection
+	lower_green = np.array([0, 235, 35], dtype = np.uint8)
+	upper_green = np.array([0, 255, 55], dtype = np.uint8)
+	
 	while True:
 		#Do the processing
 		#orig = cv2.imread('samplepics/pic2.jpg', cv2.IMREAD_COLOR)
 		ret, orig = cap.read()
 		hsv = cv2.cvtColor(orig, cv2.COLOR_BGR2HSV)
-		
-		#numpy arrays to store bgr values to mask
-		lower_red = np.array([50, 0, 225], dtype = np.uint8) 
-		upper_red = np.array([70, 10, 255], dtype = np.uint8)
 		
 		#masking and thresholding the image
 		mask = cv2.inRange(hsv, lower_red, upper_red)
@@ -71,6 +75,7 @@ def vision():
 		cv2.imshow('original', orig)
 		#cv2.imshow('hsv', hsv)
 		if cv2.waitKey(1) & 0xff == ord('q'):
+			cv2.imwrite('one_frame.png', orig)
 			break
 			
 		time.sleep(0.2)
