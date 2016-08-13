@@ -1,4 +1,5 @@
 #4810Vision - A Python Implementation of OpenCV for Stronghold 2016 Target Detection
+TODO: Expand on Readme
 
 **Instructions to run program**
 
